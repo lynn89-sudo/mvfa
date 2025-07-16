@@ -1,14 +1,19 @@
-// This userscript contains modified code from Neon @ neongamerbot-qk on GitHub
+document.getElementById("tutorial-help-btn").style = "top: calc(var(--spacing)*8); bottom: none";
+document.querySelector(".tutorial-mascot").style="display: none";
+document.querySelector('[data-project-index="0"]').style=
+"background-color: #e6cde1;"
+document.querySelector('[data-project-index="1"]').style=
+"background-color: #bcc9e3;"
 
-document.getElementById("tutorial-help-btn").style = "top: calc(var(--spacing)*8); bottom: 0";
-document.querySelector(".tutorial-mascot").style = "display: none";
-document.querySelector("[data-project-index] = 0").style = "background-color: #e6cde1";
-document.querySelector("[data-project-index] = 1").style = "background-color: #bcc9e3
-document.querySelector("[.min-h-screen]).innerHTML += `
-<div id='transWall' style=`position: absolute; background: linear-gradient(#FFC0CB, #FFFFFF, #ADD8E6); left: 0; right: 0; top: 0; bottom: 0'; z-index: -1>
-</div>`;
+/*
+document.querySelectorAll(".card-with-gradient").forEach(card => {
+    card.style.background = "linear-gradient(#FFC0CB, #FFFFFF, #ADD8E6)";
+});
+*/
 
-// MODIFIED USERSCRIPT //
+// Add the transWall div to the body
+document.querySelector(".min-h-screen").innerHTML += "<div id='transWall' style='position: absolute; background: linear-gradient(#FFC0CB, #FFFFFF, #ADD8E6); left: 0; right: 0; top: 0; bottom: 0; z-index: -1'></div>";
+
 const xoxp = localStorage.getItem("xoxp") || "enter-ur-xoxp-here";
 const config = {
   // change ur config values below!
@@ -109,7 +114,7 @@ async function main() {
   submitButton.onclick = () => {
     window.hasRunVotingScript = false;
     localStorage.setItem("waitUntil", Date.now() + 5000);
-    // alert(`You voted for ${WinningStatus} project: ${WinningStatus === "LEFT" ? lname : WinningStatus === "RIGHT" ? rname : "TIE"}\n\n`  + voteValue)
+    // alert(`You voted for ${WinningStatus} project: ${WinningStatus === "LEFT" ? lname : WinningStatus === "RIGHT" ? rname : "TIE"}\n\n`   + voteValue)
     sendEventVote({
       explanation: voteValue,
       anon,
@@ -142,17 +147,22 @@ setInterval(async () => {
     Date.now() < parseInt(localStorage.getItem("waitUntil"))
   ) {
     console.log("Waiting for the voting script to reset...");
+    document.getElementById("tutorial-help-btn").style = "top: 35px";
+    document.querySelector(".tutorial-mascot").style="display: none";
+    document.querySelector('[data-project-index="0"]').style=
+    "background-color: #e6cde1;"
+    document.querySelector('[data-project-index="1"]').style=
+    "background-color: #bcc9e3;"
 
-    document.getElementById("tutorial-help-btn").style = "top: calc(var(--spacing)*8); bottom: 0";
-    document.querySelector(".tutorial-mascot").style = "display: none";
-    document.querySelector("[data-project-index] = 0").style = "background-color: #e6cde1";
-    document.querySelector("[data-project-index] = 1").style = "background-color: #bcc9e3
-    if (!document.getElementById("transWall)) {
-        document.querySelector("[.min-h-screen]).innerHTML += `
-        <div id='transWall' style=`position: absolute; background: linear-gradient(#FFC0CB, #FFFFFF, #ADD8E6); left: 0; right: 0; top: 0; bottom: 0'; z-index: -1>
-        </div>`;
+/*
+    document.querySelectorAll(".card-with-gradient").forEach(card => {
+    card.style.background = "linear-gradient(#FFC0CB, #FFFFFF, #ADD8E6)";
+});
+*/
+
+    if (!document.getElementById('transWall')) {
+        document.querySelector(".min-h-screen").innerHTML += "<div id='transWall' style='position: absolute; background: linear-gradient(#FFC0CB, #FFFFFF, #ADD8E6); left: 0; right: 0; top: 0; bottom: 0; z-index: -1'></div>";
     }
-
     return;
   } else {
     localStorage.removeItem("waitUntil");
