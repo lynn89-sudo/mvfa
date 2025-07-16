@@ -1,0 +1,90 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: Space Mono;
+            text-align: center;
+        }
+        body {
+            background-color: #83434d;
+            color: white;
+        }
+        .theme {
+            background-color: rgb(80, 8, 8);
+            border-radius: 30px;
+            color: white;
+            margin: 30px;
+            padding: 10px;
+            transition: border-radius 0.5s;
+
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+
+            button {
+                border-radius: 20px;
+                border: none
+            }
+            button:hover {
+                background-color: rgb(255, 255, 255);
+                cursor: pointer;
+            }
+        }
+        .theme:hover {
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+        h1, h2, h3 {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        h1 {
+            font-family: Montserrat
+        }
+
+        #vogel {
+            background-color: #50292f;
+            padding: 20px;
+            border-radius: 20px
+        }
+    </style>
+    <style>
+        #trans {
+            color: rgb(52, 99, 165);
+            background: linear-gradient(#FFC0CB, #FFFFFF, #ADD8E6);
+        }
+        #trans:hover {
+            h3 {
+                color: rgb(7, 67, 151);
+            }
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <h1>MAKE VOTING GREAT (AGAIN)!</h1>
+    <br>
+    <h3>Choose from (soon to be) a variety of themes for the SOM voting page, which also adds some needed UI fixes (will help your OCD).</h3>
+    <br>
+    <div id="vogel">
+        <h2>THEMES</h2>
+        <h4><em>Copy scripts into web inspector once voting page is loaded ^w^</em></h4>
+        <div class="theme" id="trans" onclick="load(`trans`)">
+            <h3>Trans Flag</h3>
+            <button>Copy</button>
+            <h3></h3>
+        </div>
+    </div>
+    <script>
+        function load(theme) {
+            if (theme == "trans") {
+                window.location.href = "trans.txt"
+            }
+        }
+    </script>
+</body>
